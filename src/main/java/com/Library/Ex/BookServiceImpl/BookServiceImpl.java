@@ -1,9 +1,10 @@
 package com.Library.Ex.BookServiceImpl;
 
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
+import org.springframework.data.domain.*;
 import com.Library.Ex.BookRepository.BookRepository;
 import com.Library.Ex.BookService.BookService;
 import com.Library.Ex.Entity.Book;
@@ -49,6 +50,30 @@ public class BookServiceImpl implements BookService {
         repository.delete(getBookById(id));
     }
 
+	@Override
+	public List<Book> findByTitle(String titel) {
+		return repository.findByTitleContainingIgnoreCase(titel);
+	}
+
+	@Override
+	public List<Book> findByAuthor(String Author) {
+		return repository.findByAuthorIgnoreCase(Author);
+	}
+
+	@Override
+	public Book findbyIsbn(String Isbn) {
+		return repository.findByIsbn(Isbn);
+	}
+
+	@Override
+	public List<Book> findByCategory(String category) {
+		return repository.findByCategoryIgnoreCase(category);
+	}
+
+	@Override
+	public Page<Book> getAllBooks(Pageable pageable) {
+	    return repository.findAll(pageable);
+	}
 	
 
 	

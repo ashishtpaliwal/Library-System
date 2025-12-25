@@ -15,6 +15,8 @@ public class Book {
 	    private Long id;
 
 	    private String title;
+	    private String edition;
+	    private String category;
 	    private String author;
 
 	    @Column(nullable = false, unique = true)
@@ -28,14 +30,21 @@ public class Book {
 			
 		}
 
-		public Book(Long id, String title, String author, String isbn, LocalDate publishedDate) {
-			super();
+		
+
+		public Book(Long id, String title, String edition, String category, String author, String isbn,
+				LocalDate publishedDate) {
+		
 			this.id = id;
 			this.title = title;
+			this.edition = edition;
+			this.category = category;
 			this.author = author;
 			this.isbn = isbn;
 			this.publishedDate = publishedDate;
 		}
+
+
 
 		public Long getId() {
 			return id;
@@ -75,6 +84,22 @@ public class Book {
 
 		public void setPublishedDate(LocalDate publishedDate) {
 			this.publishedDate = publishedDate;
+		}
+
+		public String getCategory() {
+			return category;
+		}
+
+		public void setCategory(String category) {
+			this.category = category;
+		}
+
+		public String getEdition() {
+			return edition;
+		}
+
+		public void setEdition(String edition) {
+			this.edition = edition;
 		}
 
 		
