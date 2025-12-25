@@ -2,7 +2,6 @@ package com.Library.Ex.BookServiceImpl;
 
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
 import com.Library.Ex.BookRepository.BookRepository;
@@ -60,7 +59,7 @@ public class BookServiceImpl implements BookService {
 		List<Book> book= repository.findByAuthorIgnoreCase(Author);
 		
 		if(book.isEmpty()) {
-			throw new BookNotFoundException("No Book for this Author" + Author);	
+			throw new BookNotFoundException("No Book for this Author But you can find some good books" + Author);	
 		}
 		return book;
 	}
