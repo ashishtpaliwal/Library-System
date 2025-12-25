@@ -46,7 +46,7 @@ public class BookController {
     	return ResponseEntity.ok(service.findbyIsbn(isbn));
     }
     
-    @GetMapping("/search/aurthor/{aurthor}")
+    @GetMapping("/search/aurthor/{author}")
     public ResponseEntity<List<Book>> findByaurthor(@PathVariable String aurthor){
     	return ResponseEntity.ok(service.findByAuthor(aurthor));
     }

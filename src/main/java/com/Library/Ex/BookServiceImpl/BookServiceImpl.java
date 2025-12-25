@@ -57,7 +57,12 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public List<Book> findByAuthor(String Author) {
-		return repository.findByAuthorIgnoreCase(Author);
+		List<Book> book= repository.findByAuthorIgnoreCase(Author);
+		
+		if(book.isEmpty()) {
+			throw new BookNotFoundException("No Book for this Author" + Author);	
+		}
+		return book;
 	}
 
 	@Override

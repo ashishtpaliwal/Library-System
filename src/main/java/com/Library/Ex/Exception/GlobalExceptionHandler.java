@@ -15,7 +15,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(Map.of(
                         "message", ex.getMessage(),
-                        "status", 404,
                         "timestamp", LocalDateTime.now()
                 ));
     }
